@@ -1,0 +1,7 @@
+node_modules/
+session/
+wa-downloads/
+daemon.pid
+*.log
+link-qr.png
+qr.png
