@@ -116,7 +116,14 @@ The daemon needs to stay running in the background for Claude to access WhatsApp
 
 To let Claude transcribe voice notes and extract video frames, set up the included `process_media.py` helper.
 
-**1. Get a free AssemblyAI key** at [assemblyai.com](https://assemblyai.com) — $50 free credit on signup (~135 hours of audio, effectively free for personal use).
+**1. Get a free AssemblyAI key** (takes 2 minutes, no credit card needed):
+
+- Go to [assemblyai.com](https://assemblyai.com) and click **Sign Up**
+- Create an account with your email
+- Once logged in, go to your [dashboard](https://www.assemblyai.com/dashboard)
+- Your API key is shown on the dashboard — click to copy it
+
+You get $50 in free credit just for signing up (~135 hours of audio). For reading WhatsApp voice notes, this is effectively free forever.
 
 **2. Install dependencies:**
 ```bash
