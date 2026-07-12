@@ -112,6 +112,39 @@ The daemon needs to stay running in the background for Claude to access WhatsApp
 
 ---
 
+## Voice notes + media processing (optional)
+
+To let Claude transcribe voice notes and extract video frames, set up the included `process_media.py` helper.
+
+**1. Get a free AssemblyAI key** at [assemblyai.com](https://assemblyai.com) — $50 free credit on signup (~135 hours of audio, effectively free for personal use).
+
+**2. Install dependencies:**
+```bash
+pip install requests
+# Also install ffmpeg (for video): https://ffmpeg.org/download.html
+```
+
+**3. Set your API key:**
+```bash
+# Mac / Linux
+export ASSEMBLYAI_API_KEY=your_key_here
+
+# Windows
+set ASSEMBLYAI_API_KEY=your_key_here
+```
+
+**4. Tell Claude how to use it** — add this to your Claude Code project instructions (`CLAUDE.md`):
+
+```
+When you download media from WhatsApp, run:
+python /path/to/whatsapp-claude-mcp/process_media.py <file_path>
+It prints what to do next (read the file, frame paths, or transcript).
+```
+
+After that, Claude handles everything automatically — downloads the voice note, transcribes it, reads the result.
+
+---
+
 ## Environment variables
 
 | Variable | Required | Default | Description |
@@ -119,6 +152,7 @@ The daemon needs to stay running in the background for Claude to access WhatsApp
 | `WA_PAIR_NUMBER` | Yes (first run) | — | Your WhatsApp number (e.g. `601XXXXXXXX`) |
 | `WA_MCP_PORT` | No | `8765` | Port to listen on |
 | `WA_DOWNLOAD_DIR` | No | `./wa-downloads` | Where downloaded media is saved |
+| `ASSEMBLYAI_API_KEY` | For voice notes | — | Free at assemblyai.com |
 
 ---
 
